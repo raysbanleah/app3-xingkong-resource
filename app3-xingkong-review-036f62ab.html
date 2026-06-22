@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 星空体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e2329;
+            line-height: 1.6;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper {
+            max-width: 920px;
+            width: 100%;
+        }
+
+        /* 开篇——极简叙事线 */
+        .opening {
+            margin-bottom: 48px;
+            padding: 32px 0 12px 0;
+            border-bottom: 1px solid #d6dce2;
+        }
+
+        .opening .line-small {
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
+            color: #6b7a8b;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .opening h1 {
+            font-size: 2.2rem;
+            font-weight: 580;
+            letter-spacing: -0.02em;
+            color: #1a202c;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .opening p {
+            font-size: 1.1rem;
+            color: #2e3a46;
+            max-width: 680px;
+        }
+
+        /* 承接段落——索引的价值 */
+        .bridge {
+            background-color: #ffffffdd;
+            backdrop-filter: blur(2px);
+            padding: 28px 32px;
+            margin-bottom: 44px;
+            border-radius: 20px;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .bridge p {
+            font-size: 1.04rem;
+            color: #1f2a36;
+            margin-bottom: 18px;
+        }
+
+        .bridge p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bridge strong {
+            font-weight: 550;
+            color: #0f1a26;
+        }
+
+        /* 特点列表——卡片网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 24px 22px;
+            border: 1px solid #dee4eb;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.01), 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            border-color: #c9d4e0;
+        }
+
+        .feature-card .card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card .card-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            color: #33658b;
+        }
+
+        .feature-card h3 {
+            font-size: 1.18rem;
+            font-weight: 540;
+            letter-spacing: -0.01em;
+            color: #17212b;
+        }
+
+        .feature-card p {
+            font-size: 0.97rem;
+            color: #2f3e4e;
+        }
+
+        /* 场景 + 提示：混排区块 */
+        .scene-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 32px 28px;
+            margin-bottom: 44px;
+            border: 1px solid #dfe5ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+        }
+
+        .scene-block h2 {
+            font-size: 1.6rem;
+            font-weight: 520;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            color: #19232f;
+        }
+
+        .scene-block .scene-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .scene-block .scene-num {
+            font-size: 0.9rem;
+            font-weight: 540;
+            background: #e9eef4;
+            color: #2c3f53;
+            border-radius: 30px;
+            padding: 2px 14px;
+            white-space: nowrap;
+            line-height: 1.8;
+            margin-top: 2px;
+        }
+
+        .scene-block .scene-text {
+            font-size: 1rem;
+            color: #1f2c3b;
+        }
+
+        .scene-block .scene-text a {
+            color: #1f4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9bb1c9;
+            transition: border-color 0.1s;
+        }
+
+        .scene-block .scene-text a:hover {
+            border-bottom: 1px solid #1f4a7a;
+        }
+
+        .block-note {
+            background: #f6f9fd;
+            border-left: 4px solid #7d98b3;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 24px;
+            font-size: 0.96rem;
+            color: #1f3246;
+        }
+
+        /* FAQ 摘要 —— 轻量 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 32px 20px;
+            margin-bottom: 42px;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+        }
+
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #1c2939;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #e5ebf2;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 520;
+            color: #0f1e2f;
+            margin-bottom: 4px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .faq-item .q::before {
+            content: "Q";
+            font-weight: 550;
+            color: #4a6988;
+        }
+
+        .faq-item .a {
+            color: #33465b;
+            margin-left: 24px;
+            font-size: 0.96rem;
+        }
+
+        .faq-item .a a {
+            color: #1f4a7a;
+            text-decoration: none;
+            border-bottom: 1px dotted #a3b9d2;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom: 1px solid #1f4a7a;
+        }
+
+        /* 温和结尾 */
+        .gentle-end {
+            text-align: center;
+            padding: 40px 0 8px;
+            border-top: 1px solid #d0d8e2;
+            margin-top: 12px;
+        }
+
+        .gentle-end p {
+            font-size: 1rem;
+            color: #3c5065;
+            max-width: 600px;
+            margin: 0 auto 10px;
+        }
+
+        .gentle-end .meta-note {
+            font-size: 0.85rem;
+            color: #6c819a;
+            letter-spacing: 0.3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .opening h1 {
+                font-size: 1.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bridge {
+                padding: 20px 20px;
+            }
+
+            .scene-block {
+                padding: 24px 20px;
+            }
+
+            .faq-mini {
+                padding: 20px 18px;
+            }
+
+            .scene-block .scene-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .faq-item .a {
+                margin-left: 16px;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .opening h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 开篇短句 -->
+    <div class="opening">
+        <div class="line-small">资料索引 · 信息聚合</div>
+        <h1>从零散记录到有序参考</h1>
+        <p>当体育资讯散落在不同页面，一个结构化的索引便能帮人省去反复搜索的周折。本页围绕 <strong>星空体育</strong> 的公开资料进行梳理，侧重可检索性与分类逻辑。</p>
+    </div>
+
+    <!-- 承接段落：索引的立场 -->
+    <div class="bridge">
+        <p>信息整理的第一步是划定范围。在体育类平台中，赛事数据、队伍沿革、赛季变动往往分属不同模块。若没有清晰的目录，查阅者容易在页面跳转中丢失上下文。因此，我们尝试以卡片和摘要的形式，将常见查询需求归纳为若干类别，每一项均指向可直接阅读的出处。</p>
+        <p>以下列举的内容均来自对 <a href="https://app3-xingkong.com" style="color:#1f4a7a; text-decoration: none; border-bottom: 1px dotted #9bb1c9;">星空体育</a> 公开区域的长期追踪与整理。索引本身不改变原始信息，仅提供导航意义上的辅助。</p>
+    </div>
+
+    <!-- 特点列表：卡片式 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="card-head">
+                <span class="card-icon">📇</span>
+                <h3>赛事结构快览</h3>
+            </div>
+            <p>按赛季、杯赛、联赛三级分类，每项均附注参赛队伍数、赛制轮次以及近三个周期的变化备注。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-head">
+                <span class="card-icon">📋</span>
+                <h3>队伍档案摘要</h3>
+            </div>
+            <p>收录主要队伍的成立年份、主场变迁、历史名称变动，同时记录近五年的核心阵容更替时间线。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-head">
+                <span class="card-icon">🔍</span>
+                <h3>数据字段说明</h3>
+            </div>
+            <p>针对比分、积分、净胜球等常见字段标注统计口径，避免因定义差异造成误读。</p>
+        </div>
+        <div class="feature-card">
+            <div class="card-head">
+                <span class="card-icon">🗂️</span>
+                <h3>更新日志索引</h3>
+            </div>
+            <p>记录资料库每次修订的日期、变动范围与原因，方便回溯历史版本。</p>
+        </div>
+    </div>
+
+    <!-- 场景 + 提示：混排区块 -->
+    <div class="scene-block">
+        <h2>适用场景与查阅提示</h2>
+
+        <div class="scene-item">
+            <span class="scene-num">研究</span>
+            <div class="scene-text">需要对比不同赛季的赛制改动时，可直接查阅「赛事结构快览」卡片中的轮次对比表。建议配合平台原版赛历使用，<a href="https://app3-xingkong.com">星空体育</a> 的赛季页面提供最原始的日期与场地信息。</div>
+        </div>
+
+        <div class="scene-item">
+            <span class="scene-num">写作</span>
+            <div class="scene-text">撰写队伍专题时，队伍档案摘要中的主场变迁与名称变动可提供背景线索。注意核对每一则引用的原文链接，确保与平台资料一致。</div>
+        </div>
+
+        <div class="scene-item">
+            <span class="scene-num">日常</span>
+            <div class="scene-text">若只想快速确认某个近期结果，可直接利用数据字段说明中的统计口径，再到对应比赛页面进行比对。</div>
+        </div>
+
+        <div class="block-note">
+            ⚡ 提示：所有索引条目均以 <a href="https://app3-xingkong.com" style="color:#1f4a7a; text-decoration: none; border-bottom: 1px dotted #9bb1c9;">星空体育</a> 公开页面为原始依据。索引不替代原站功能，建议结合平台搜索与筛选工具使用。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问 · 简答</h2>
+
+        <div class="faq-item">
+            <div class="q">索引覆盖哪些时间范围？</div>
+            <div class="a">目前整理跨度约为 2019 年至本赛季，重点记录赛制有调整的年份。更早的档案仍在逐步补全。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">能否直接下载数据表格？</div>
+            <div class="a">本页仅提供结构化摘要与导航，如需完整数据集，建议前往 <a href="https://app3-xingkong.com">星空体育</a> 的相关统计页面，部分板块支持导出。</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">如何反馈遗漏或错误？</div>
+            <div class="a">你可以通过平台内置的反馈渠道提交修正建议，索引会定期根据公开信息进行校对。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-end">
+        <p>对资料的整理本身是一种慢功夫。希望这份索引能帮你节省一些翻找的时间，让关注点回到比赛本身。</p>
+        <p class="meta-note">索引版本 · 2404B</p>
+    </div>
+
+</div>
+</body>
+</html>
